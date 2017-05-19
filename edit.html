@@ -8,16 +8,44 @@
 </head>
 <body>
 <div class="editFields">
-    <div>titel</div>
-    <input>
-    <div>beschreibung</div>
-    <input>
-    <div>wichtigkeit</div>
-    <input>
-    <div>erledigt bis:</div>
-    <input>
-    <div class="button">speichern</div>
-    <div class="button">cancel</div>
+    <div>
+        <label for="title">Titel:</label>
+    </div>
+    <div>
+        <input id="title" type="text">
+    </div>
+    <div>
+        <label for="description">Beschreibung:</label>
+    </div>
+    <div>
+        <textarea id="description"></textarea>
+    </div>
+    <div>
+        <label for="ratingSystem">Wichtigkeit:</label>
+    </div>
+    <div>
+        <fieldset id="ratingSystem">
+            <input type="radio" id="bolt5" name="rating" value="5">
+            <label class="full" for="bolt5"></label>
+            <input type="radio" id="bolt4" name="rating" value="4">
+            <label class="full" for="bolt4"></label>
+            <input type="radio" id="bolt3" name="rating" value="3">
+            <label class="full" for="bolt3"></label>
+            <input type="radio" id="bolt2" name="rating" value="2">
+            <label class="full" for="bolt2"></label>
+            <input type="radio" id="bolt1" name="rating" value="1">
+            <label class="full" for="bolt1"></label>
+        </fieldset>
+    </div>
+    <div>
+        <label for="dueDate">Erledigt bis:</label>
+    </div>
+    <div>
+        <input id="dueDate" type="date">
+    </div>
+    <div class="button">Speichern</div>
+    <div></div>
+    <div class="button">Abbrechen</div>
 </div>
 </body>
 </html>
