@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <title>Note Pro</title>
     <link rel="stylesheet" href="css/styles.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="js/edit.js"></script>
 
 </head>
 <body>
@@ -26,15 +28,15 @@
     <div>
         <fieldset id="ratingSystem">
             <input type="radio" id="bolt5" name="rating" value="5">
-            <label class="full" for="bolt5"></label>
+            <label for="bolt5"></label>
             <input type="radio" id="bolt4" name="rating" value="4">
-            <label class="full" for="bolt4"></label>
+            <label for="bolt4"></label>
             <input type="radio" id="bolt3" name="rating" value="3">
-            <label class="full" for="bolt3"></label>
+            <label for="bolt3"></label>
             <input type="radio" id="bolt2" name="rating" value="2">
-            <label class="full" for="bolt2"></label>
+            <label for="bolt2"></label>
             <input type="radio" id="bolt1" name="rating" value="1">
-            <label class="full" for="bolt1"></label>
+            <label for="bolt1"></label>
         </fieldset>
     </div>
     <div>
@@ -43,9 +45,9 @@
     <div>
         <input id="dueDate" type="date">
     </div>
-    <div class="button">Speichern</div>
+    <div id="btnSave" class="button">Speichern</div>
     <div></div>
-    <div class="button">Abbrechen</div>
+    <div id="btnCancel" class="button">Abbrechen</div>
 </div>
 </body>
 </html>
