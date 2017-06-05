@@ -6,9 +6,42 @@
     <link rel="stylesheet" href="css/styles.css">
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="js/index.js"></script>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.8/handlebars.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/locale/de-ch.js"></script>
+    <script id='toDosTemplate' type='text/x-handlebars-template'>
+        {{#each this}}
+        <li class="noteElement">
+            <div class="noteInfo">
+                <div class="noteHeader">
+                    <div>{{formatDate dueDate}}</div>
+                    <div>
+                        <input id="cbx{{id}}" data-id="{{id}}" type="checkbox" {{#if finished}}checked{{/if}}>
+                        <label for="cbx{{id}}">Finished</label>
+                    </div>
+                </div>
+                <div class="noteBody">
+                    <div>
+                        <div class="noteTitle">{{title}}</div>
+                        <div class="noteImportance">
+                            {{#times ratingSystem}}
+                            <span>{{this}}</span>
+                            {{/times}}
+                            </div>
+                    </div>
+                    <div class="description">{{description}}
+                    </div>
+                </div>
+            </div>
+            <div class="noteEdit">
+                <a class="button" href="edit.html#{{id}}">Edit</a>
+            </div>
+        </li>
+        {{/each}}
+    </script>
 </head>
 <body>
+<header>
 <div>Anzahl Einträge: <span id="anzahlEintraege"/></div>
 <nav>
     <div>
@@ -20,109 +53,24 @@
     </div>
     <div>
 
-        <div class="button">by finish date
+        <div id="btnFinishDate" class="button">by finish date
         </div>
-        <div class="button">by created date</div>
-        <div class="button">by importance</div>
+        <div id="btnCreatedDate" class="button">by created date</div>
+        <div id="btnImportance" class="button">by importance</div>
 
 
         <div>
-            <div class="button"> show finished</div>
+            <input id="cbxFinished" type="checkbox" class="button" > show finished</input>
         </div>
     </div>
 </nav>
+</header>
+<main>
 
 <section id="notes">
-
-    <ul class="notesList">
-        <li class="noteElement">
-            <div class="noteInfo">
-                <div class="noteHeader">
-                    <div>nächsten Mittwoch</div>
-                    <div>
-                        <input id="cbx1" type="checkbox">
-                        <label for="cbx1">Finished</label>
-                    </div>
-                </div>
-                <div class="noteBody">
-                    <div>
-                        <div class="noteTitle">cAS FEE sdfsdfadsfas</div>
-                        <div class="noteImportance">///</div>
-                    </div>
-                    <div class="description">die beschrebung...sd.fsdfs<br>
-                        asdfasd
-                        asdfa
-                        sdfa
-                        sdfasd<br>
-                        asdfasdf.
-                    </div>
-                </div>
-            </div>
-            <div class="noteEdit">
-                <a class="button" href="edit.html">Edit</a>
-            </div>
-
-        </li>
-        <li class="noteElement">
-            <div class="noteInfo">
-                <div class="noteHeader">
-                    <div>nächsten Mittwoch</div>
-                    <div>
-                        <input id="cbx1" type="checkbox">
-                        <label for="cbx1">Finished</label>
-                    </div>
-                </div>
-                <div class="noteBody">
-                    <div>
-                        <div class="noteTitle">cAS FEE sdfsdfadsfas</div>
-                        <div class="noteImportance">///</div>
-                    </div>
-                    <div class="description">die beschrebung...sd.fsdfs<br>
-                        asdfasd
-                        asdfa
-                        sdfa
-                        sdfasd<br>
-                        asdfasdf.
-                    </div>
-                </div>
-            </div>
-            <div class="noteEdit">
-                <a class="button" href="edit.html">Edit</a>
-            </div>
-
-        </li>
-        <li class="noteElement">
-            <div class="noteInfo">
-                <div class="noteHeader">
-                    <div>nächsten Mittwoch</div>
-                    <div>
-                        <input id="cbx1" type="checkbox">
-                        <label for="cbx1">Finished</label>
-                    </div>
-                </div>
-                <div class="noteBody">
-                    <div>
-                        <div class="noteTitle">cAS FEE sdfsdfadsfas</div>
-                        <div class="noteImportance">///</div>
-                    </div>
-                    <div class="description">die beschrebung...sd.fsdfs<br>
-                        asdfasd
-                        asdfa
-                        sdfa
-                        sdfasd<br>
-                        asdfasdf.
-                    </div>
-                </div>
-            </div>
-            <div class="noteEdit">
-                <a class="button" href="edit.html">Edit</a>
-            </div>
-
-        </li>
-    </ul>
-
+    <ul class="notesList"></ul>
 </section>
 
-
+</main>
 </body>
 </html>
