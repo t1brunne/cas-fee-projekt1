@@ -5,49 +5,56 @@
     <title>Note Pro</title>
     <link rel="stylesheet" href="css/styles.css">
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-    <script src="js/edit.js"></script>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.8/handlebars.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/locale/de-ch.js"></script>
+    <script src="js/edit.js"></script>
+    <script id='editTemplate' type='text/x-handlebars-template'>
+        {{dueDate}}
+    <div class="editFields">
+        <div>
+            <label for="title">Titel:</label>
+        </div>
+        <div>
+            <input id="title" type="text" value="{{title}}">
+        </div>
+        <div>
+            <label for="description">Beschreibung:</label>
+        </div>
+        <div>
+            <textarea id="description">{{description}}</textarea>
+        </div>
+        <div>
+            <label for="ratingSystem">Wichtigkeit:</label>
+        </div>
+        <div>
+            <fieldset id="ratingSystem">
+                <input type="radio" id="bolt5" name="rating" value="5">
+                <label for="bolt5"></label>
+                <input type="radio" id="bolt4" name="rating" value="4">
+                <label for="bolt4"></label>
+                <input type="radio" id="bolt3" name="rating" value="3">
+                <label for="bolt3"></label>
+                <input type="radio" id="bolt2" name="rating" value="2">
+                <label for="bolt2"></label>
+                <input type="radio" id="bolt1" name="rating" value="1">
+                <label for="bolt1"></label>
+            </fieldset>
+        </div>
+        <div>
+            <label for="dueDate">Erledigt bis:</label>
+        </div>
+        <div>
+            <input id="dueDate" type="date" value="{{dueDate}}">
+        </div>
+        <div id="btnSave" class="button">Speichern</div>
+        <div></div>
+        <div id="btnCancel" class="button">Abbrechen</div>
+    </div>
+    </script>
 </head>
 <body>
-<div class="editFields">
-    <div>
-        <label for="title">Titel:</label>
-    </div>
-    <div>
-        <input id="title" type="text">
-    </div>
-    <div>
-        <label for="description">Beschreibung:</label>
-    </div>
-    <div>
-        <textarea id="description"></textarea>
-    </div>
-    <div>
-        <label for="ratingSystem">Wichtigkeit:</label>
-    </div>
-    <div>
-        <fieldset id="ratingSystem">
-            <input type="radio" id="bolt5" name="rating" value="5">
-            <label for="bolt5"></label>
-            <input type="radio" id="bolt4" name="rating" value="4">
-            <label for="bolt4"></label>
-            <input type="radio" id="bolt3" name="rating" value="3">
-            <label for="bolt3"></label>
-            <input type="radio" id="bolt2" name="rating" value="2">
-            <label for="bolt2"></label>
-            <input type="radio" id="bolt1" name="rating" value="1">
-            <label for="bolt1"></label>
-        </fieldset>
-    </div>
-    <div>
-        <label for="dueDate">Erledigt bis:</label>
-    </div>
-    <div>
-        <input id="dueDate" type="date">
-    </div>
-    <div id="btnSave" class="button">Speichern</div>
-    <div></div>
-    <div id="btnCancel" class="button">Abbrechen</div>
-</div>
+
 </body>
 </html>
