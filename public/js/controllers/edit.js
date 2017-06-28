@@ -31,7 +31,7 @@
                     title.val(),
                     description.val(),
                     importance.val(),
-                    dueDate.val(),
+                    Date.parse(dueDate.val()),
                     toDo.finishedDate
                 ).done(function (msg) {
                     window.location.replace("index.html");
@@ -43,7 +43,7 @@
                 client.createNote(title.val(),
                     description.val(),
                     importance.val(),
-                    dueDate.val()
+                    Date.parse(dueDate.val())
                 ).done(function (msg) {
                     window.location.replace("index.html");
                 }).fail(function (msg) {
