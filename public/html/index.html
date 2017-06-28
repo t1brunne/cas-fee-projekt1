@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Note Pro</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.8/handlebars.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/locale/de-ch.js"></script>
+    <script src="../js/util/handlebars.js"></script>
+    <script src="../js/libs/shared.js"></script>
+    <script src="../js/util/ajaxUtil.js"></script>
+    <script src="../js/services/restClient.js"></script>
+    <script src="../js/controllers/index.js"></script>
+    <script id='toDosTemplate' type='text/x-handlebars-template'>
+        {{#each this}}
+        <li class="noteElement">
+            <div class="noteInfo">
+                <div class="noteHeader">
+                    <div>{{formatDate dueDate}}</div>
+                    <div>
+                        <input id="cbx{{_id}}" data-id="{{_id}}" class="js-finish" type="checkbox" {{#if finished}}checked{{/if}}>
+                        <label for="cbx{{_id}}">Finished</label>
+                        {{#if finished}} [{{formatDate finished}}] {{/if}}
+                    </div>
+                </div>
+                <div class="noteBody">
+                    <div>
+                        <div class="noteTitle">{{title}}</div>
+                        <div class="noteImportance">
+
+                            {{#times importance}}
+                            <span>&#9735;</span>
+                            {{/times}}
+                            </div>
+                    </div>
+                    <div class="description">{{breaklines description}}
+                    </div>
+                </div>
+            </div>
+            <div class="noteEdit">
+                <a class="button" href="edit.html#{{_id}}">Edit</a>
+            </div>
+        </li>
+        {{/each}}
+    </script>
+
+
+
+</head>
+<body >
+<header>
+
+<nav>
+    <div>
+        <a id="btnCreateNewNote" class="button" href="edit.html">Create new Note</a>
+        <select id="ddStyle" name="ddStyle" title="themeSwitcher">
+            <option>Black-White-Style</option>
+            <option value="color" >Color-Style</option>
+        </select>
+    </div>
+    <div>
+
+        <!--fieldset id="sortButtons" -->
+        <div id="sortButtons" role="radiogroup" aria-labelledby="importance">
+            <input type="radio" class="toggle" id="sortDueDate" name="sort" data-reverse-sort-order="true" value="dueDateMoment">
+            <label class="button" for="sortDueDate">by Finish Date</label>
+
+            <input type="radio" class="toggle" id="sortCreatedDate" name="sort" data-reverse-sort-order="true" value="createdDateMoment">
+            <label class="button" for="sortCreatedDate">by Created Date</label>
+            <input type="radio" class="toggle" id="sortImportanceDate" name="sort" value="importance">
+            <label class="button" for="sortImportanceDate">by Importance</label>
+        </div>
+            <!--/fieldset-->
+        <input id="cbxFinished" class="toggle" type="checkbox" value="finished"> </input>
+        <label class="button" for="cbxFinished">show finished</label>
+    </div>
+</nav>
+</header>
+<main>
+
+<section id="notes">
+    <ul class="notesList"></ul>
+</section>
+
+</main>
+</body>
+</html>
