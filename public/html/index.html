@@ -20,7 +20,8 @@
                 <div class="noteHeader">
                     <div>{{formatDate dueDate}}</div>
                     <div>
-                        <input id="cbx{{_id}}" data-id="{{_id}}" class="js-finish" type="checkbox" {{#if finished}}checked{{/if}}>
+                        <input id="cbx{{_id}}" data-id="{{_id}}" class="js-finish" type="checkbox" {{#if
+                               finished}}checked{{/if}}>
                         <label for="cbx{{_id}}">Finished</label>
                         {{#if finished}} [{{formatDate finished}}] {{/if}}
                     </div>
@@ -33,7 +34,7 @@
                             {{#times importance}}
                             <span>&#9735;</span>
                             {{/times}}
-                            </div>
+                        </div>
                     </div>
                     <div class="description">{{breaklines description}}
                     </div>
@@ -45,44 +46,40 @@
         </li>
         {{/each}}
     </script>
-
-
-
 </head>
-<body >
+<body>
 <header>
-
-<nav>
-    <div>
-        <a id="btnCreateNewNote" class="button" href="edit.html">Create new Note</a>
-        <select id="ddStyle" name="ddStyle" title="themeSwitcher">
-            <option>Black-White-Style</option>
-            <option value="color" >Color-Style</option>
-        </select>
-    </div>
-    <div>
-
-        <!--fieldset id="sortButtons" -->
-        <div id="sortButtons" role="radiogroup" aria-labelledby="importance">
-            <input type="radio" class="toggle" id="sortDueDate" name="sort" data-reverse-sort-order="true" value="dueDateMoment">
-            <label class="button" for="sortDueDate">by Finish Date</label>
-
-            <input type="radio" class="toggle" id="sortCreatedDate" name="sort" data-reverse-sort-order="true" value="createdDateMoment">
-            <label class="button" for="sortCreatedDate">by Created Date</label>
-            <input type="radio" class="toggle" id="sortImportanceDate" name="sort" value="importance">
-            <label class="button" for="sortImportanceDate">by Importance</label>
+    <nav>
+        <div>
+            <a id="btnCreateNewNote" class="button" href="edit.html">Create new Note</a>
+            <select id="ddStyle" name="ddStyle" title="themeSwitcher">
+                <option>Black-White-Style</option>
+                <option value="color">Color-Style</option>
+            </select>
         </div>
-            <!--/fieldset-->
-        <input id="cbxFinished" class="toggle" type="checkbox" value="finished"> </input>
-        <label class="button" for="cbxFinished">show finished</label>
-    </div>
-</nav>
+        <div>
+
+            <div id="sortButtons" role="radiogroup" aria-labelledby="importance">
+                <input type="radio" class="toggle" id="sortDueDate" name="sort" data-reverse-sort-order="true"
+                       value="dueDateMoment">
+                <label class="button" for="sortDueDate">by Finish Date</label>
+                <input type="radio" class="toggle" id="sortCreatedDate" name="sort" data-reverse-sort-order="true"
+                       value="createdDateMoment">
+                <label class="button" for="sortCreatedDate">by Created Date</label>
+                <input type="radio" class="toggle" id="sortImportanceDate" name="sort" data-reverse-sort-order="true" value="importance">
+                <label class="button" for="sortImportanceDate">by Importance</label>
+            </div>
+
+            <input id="cbxFinished" class="toggle" type="checkbox" value="finished"> </input>
+            <label class="button" for="cbxFinished">show finished</label>
+        </div>
+    </nav>
 </header>
 <main>
 
-<section id="notes">
-    <ul class="notesList"></ul>
-</section>
+    <section id="notes">
+        <ul class="notesList"></ul>
+    </section>
 
 </main>
 </body>

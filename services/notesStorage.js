@@ -5,9 +5,6 @@
 
 const Datastore = require('nedb');
 const db = new Datastore({ filename: './data/order.db', autoload: true });
-const moment = require('moment');
-
-
 
     let getNotes = function (callback) {
         db.find({}, function(err, notes){
@@ -19,13 +16,13 @@ const moment = require('moment');
 
     let setFinished = function (note, callback) {
        getNote(note._id, function(err, newNote) {
-           newNote.finished = note.finished ? moment().format("YYYY-MM-DD") : false;
+           newNote.finished = note.finished ? Date.now() : false;
            updateNote(newNote, callback);
        });
     };
 
     let createNote = function(note, callback){
-        note.createdDate = moment().format("YYYY-MM-DD");
+        note.createdDate = Date.now();
         db.insert(note, function(err, newNote){
             if(callback){
                 callback(err, newNote);

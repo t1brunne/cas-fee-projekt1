@@ -11,61 +11,50 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/locale/de-ch.js"></script>
     <script src="../js/util/handlebars.js"></script>
     <script src="../js/libs/shared.js"></script>
-    <!--script src="../../services/notesStorage.js"></script-->
     <script src="../js/util/ajaxUtil.js"></script>
     <script src="../js/services/restClient.js"></script>
     <script src="../js/controllers/edit.js"></script>
     <script id='editTemplate' type='text/x-handlebars-template'>
         <form>
-    <div class="editFields">
-        <div>
-            <label for="title">Titel:</label>
-        </div>
-        <div>
-            <input id="title" type="text" value="{{title}}">
-        </div>
-        <div>
-            <label for="description">Beschreibung:</label>
-        </div>
-        <div>
-            <textarea id="description">{{description}}</textarea>
-        </div>
-        <div>
-            <label for="ratingSystem">Wichtigkeit:</label>
-        </div>
-        <div >
-            <div id="ratingSystem">
-            <!--fieldset id="ratingSystem">
-                {{#times 5}}
-                <input type="radio" id="bolt{{this}}" name="rating" value="{{this}}">
-                <label for="bolt{{this}}"></label>
-                {{/times}}
-            </fieldset-->
-
-            {{#times 5}}
-
-            <input type="radio" id="bolt{{this}}" name="rating" value="{{this}}" {{isChecked ../importance this}}>
-            <label for="bolt{{this}}"> &#9735;</label>
-            {{/times}}
+            <div class="editFields">
+                <div>
+                    <label for="title">Titel:</label>
+                </div>
+                <div>
+                    <input id="title" type="text" value="{{title}}">
+                </div>
+                <div>
+                    <label for="description">Beschreibung:</label>
+                </div>
+                <div>
+                    <textarea id="description">{{description}}</textarea>
+                </div>
+                <div>
+                    <label for="ratingSystem">Wichtigkeit:</label>
+                </div>
+                <div>
+                    <div id="ratingSystem">
+                        {{#times 5}}
+                        <input type="radio" id="bolt{{this}}" name="rating" value="{{this}}" {{isChecked ../importance
+                        this}}>
+                        <label for="bolt{{this}}"> &#9735;</label>
+                        {{/times}}
+                    </div>
+                </div>
+                <div>
+                    <label for="dueDate">Erledigt bis:</label>
+                </div>
+                <div>
+                    <input id="dueDate" type="date" value="{{dueDate}}">
+                </div>
+                <div>
+                    <input class="button" type="submit" value="Submit" id="btnSubmit">
+                </div>
+                <div></div>
+                <div id="btnCancel" class="button">Abbrechen</div>
             </div>
-        </div>
-        <div>
-            <label for="dueDate">Erledigt bis:</label>
-        </div>
-        <div>
-            <input id="dueDate" type="date" value="{{dueDate}}">
-        </div>
-        <div>
-        <input class="button" type="submit" value="Submit" id="btnSubmit">
-        </div>
-        <div></div>
-        <div id="btnCancel" class="button">Abbrechen</div>
-    </div></form>
-
+        </form>
     </script>
-
-
-
 </head>
 <body>
 

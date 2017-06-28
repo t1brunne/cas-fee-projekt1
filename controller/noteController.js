@@ -3,7 +3,6 @@ const store = require("../services/notesStorage.js");
 
 module.exports.getNotes = function(req, res)
 {
-
     store.getNotes(function (err, notes) {
         res.json(notes || {});
     })
@@ -22,6 +21,7 @@ module.exports.updateNote = function(req, res)
         res.json(note);
     });
 };
+
 module.exports.setFinished = function(req, res){
     let order = store.setFinished(req.body, function(err, note) {
         res.json(note);
