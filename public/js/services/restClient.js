@@ -1,18 +1,18 @@
-;(function(services, $) {
+;(function (services, $) {
 
     const ajaxUtil = window.util.ajax;
 
     function createNote(title, description, importance, dueDate) {
-        return ajaxUtil.ajax("POST", "/note/", {title: title,
+        return ajaxUtil.ajax("POST", "/note/", {
+            title: title,
             description: description,
             importance: importance,
             dueDate: dueDate
         });
     }
 
-
     function getNote(id) {
-        return ajaxUtil.ajax("GET", "/note/"+id, undefined);
+        return ajaxUtil.ajax("GET", "/note/" + id, undefined);
     }
 
     function getNotes() {
@@ -20,7 +20,8 @@
     }
 
     function updateNote(id, title, description, importance, dueDate, finished) {
-        return ajaxUtil.ajax("PUT", "/note/"+id, {_id: id,
+        return ajaxUtil.ajax("PUT", "/note/" + id, {
+            _id: id,
             title: title,
             description: description,
             importance: importance,
@@ -29,14 +30,12 @@
         });
     }
 
-    //Finished als Attribut wieder erfassen. (und im GUI anzeigen)
-
     function setFinished(id, finished) {
-        return ajaxUtil.ajax("PUT", "/note/"+id+"/setFinished", {_id: id,
+        return ajaxUtil.ajax("PUT", "/note/" + id + "/setFinished", {
+            _id: id,
             finished: finished
         });
     }
-
 
     services.restClient = {
         getNote,
@@ -45,4 +44,4 @@
         createNote,
         setFinished
     };
-}(window.services = window.services || { }, jQuery));
+}(window.services = window.services || {}, jQuery));

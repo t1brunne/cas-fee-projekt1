@@ -2,10 +2,10 @@
  * Created by tobiasbrunner on 10.06.17.
  */
 
-(function () {
+;(function () {
     Handlebars.registerHelper('times', function (n, block) {
         var accum = '';
-        for (var i = 1; i < parseInt(n)+1; i++)
+        for (var i = 1; i < parseInt(n) + 1; i++)
             accum += block.fn(i);
         return accum;
     });
@@ -19,14 +19,22 @@
         }
     });
 
-    Handlebars.registerHelper('breaklines', function(text) {
+    Handlebars.registerHelper('breaklines', function (text) {
         text = Handlebars.Utils.escapeExpression(text);
         text = text.replace(/(\r\n|\n|\r)/gm, '<br>');
         return new Handlebars.SafeString(text);
     });
 
     Handlebars.registerHelper('isChecked', function (importance, input) {
-        console.log(importance, input);
         return parseInt(importance) === parseInt(input) ? 'checked' : '';
+    });
+
+    Handlebars.registerHelper('overFlow', function (plaintext, numlines, options) {
+        let lines = plaintext.split(/\r\n|\r|\n/g);
+        if (lines.length > numlines) {
+            return options.fn(this);
+        } else {
+            return options.inverse(this);
+        }
     });
 })();

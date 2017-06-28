@@ -2,13 +2,12 @@
  * Created by tobiasbrunner on 21.05.17.
  */
 
-
-(function () {
+;(function () {
     $(document).ready(function () {
 
         let bodyclass = localStorage.getItem("bodyclass");
         if (bodyclass) {
-            $("body").attr('class', bodyclass );
+            $("body").attr('class', bodyclass);
             $("#ddStyle").val(bodyclass);
         }
 
@@ -22,19 +21,19 @@
             var reverseSortOrder = $('input[type="radio"]:checked').attr("data-reverse-sort-order");
             var filterBy = $("#cbxFinished")[0].checked ? false : $("#cbxFinished")[0].value;
             var notesList = $("#notes");
-            client.getNotes().done(function(toDos){
+            client.getNotes().done(function (toDos) {
 
-                notes = createNotesFromJsObjects(toDos);
-                notes = notes.sortBy(sortBy, reverseSortOrder);
-                notes = notes.filterBy(filterBy);
+                    notes = createNotesFromJsObjects(toDos);
+                    notes = notes.sortBy(sortBy, reverseSortOrder);
+                    notes = notes.filterBy(filterBy);
 
-                var toDosTemplate = $('#toDosTemplate').html();
-                var createToDosHtml = Handlebars.compile(toDosTemplate);
-                notesList.html(createToDosHtml(notes));
+                    var toDosTemplate = $('#toDosTemplate').html();
+                    var createToDosHtml = Handlebars.compile(toDosTemplate);
+                    notesList.html(createToDosHtml(notes));
 
-                notesList.on("click", ".js-finish", function(event){
-                    client.setFinished($(event.currentTarget).data("id"),  this.checked).done(render)
-                });
+                    notesList.on("click", ".js-finish", function (event) {
+                        client.setFinished($(event.currentTarget).data("id"), this.checked).done(render)
+                    });
                 }
             );
         };

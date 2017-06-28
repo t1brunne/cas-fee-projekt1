@@ -14,55 +14,61 @@ class Note {
         this._createdDate = createdDate;
     }
 
-    get finished(){
+    get finished() {
         return this._finished;
     }
 
-    get createdDate(){
+    get createdDate() {
         return this._createdDate;
     }
-    get createdDateMoment(){
+
+    get createdDateMoment() {
         return moment(this._createdDate);
     }
-    get title (){
+
+    get title() {
         return this._title;
     }
+
     get description() {
         return this._description;
     }
+
     get importance() {
         return this._importance;
     }
+
     get dueDate() {
         return this._dueDate;
     }
-    get dueDateMoment(){
+
+    get dueDateMoment() {
         return this._dueDate ? moment(this._dueDate) : false;
     }
 }
 
 
-Array.prototype.filterBy = function(attributeName) {
-    return this.filter(function(obj){
+Array.prototype.filterBy = function (attributeName) {
+    return this.filter(function (obj) {
         return !obj[attributeName];
     });
 };
 
-Array.prototype.sortBy = function(attributeName, reverse){
+Array.prototype.sortBy = function (attributeName, reverse) {
     if (reverse) {
         return this.sort(function (a, b) {
-            return b[attributeName] - a[attributeName] ;
+            return b[attributeName] - a[attributeName];
         });
-    }else {
+    } else {
         return this.sort(function (a, b) {
             return a[attributeName] - b[attributeName];
         });
     }
 };
 
-let createNotesFromJsObjects = function(objects){
+let createNotesFromJsObjects = function (objects) {
     var notes = [];
-    for (let o of objects){
+    for (let o of objects) {
         notes.push(new Note(o.title, o.description, o.importance, o.dueDate, o._id, o.finished, o.createdDate));
     }
     return notes;

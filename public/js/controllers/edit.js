@@ -2,7 +2,7 @@
  * Created by tobiasbrunner on 21.05.17.
  */
 
-(function () {
+;(function () {
 
     const client = window.services.restClient;
 
@@ -14,55 +14,48 @@
         $("body").html(createEditHtml(toDo));
         const btnSubmit = $("#btnSubmit");
 
-        if (toDo ){
-            if ( toDo.rating) {
+        if (toDo) {
+            if (toDo.rating) {
                 $("#bolt" + toDo.rating)[0].checked = true;
             }
-
         }
 
-            btnSubmit.click(function (event) {
-                const title = $("#title");
-                const description = $("#description");
-                const importance = $('input[type="radio"]:checked');
-                const dueDate = $("#dueDate");
+        btnSubmit.click(function (event) {
+            const title = $("#title");
+            const description = $("#description");
+            const importance = $('input[type="radio"]:checked');
+            const dueDate = $("#dueDate");
 
-                if (toDo) {
-                    client.updateNote(toDo._id,
-                        title.val(),
-                        description.val(),
-                        importance.val(),
-                        dueDate.val(),
-                        toDo.finishedDate
-                    ).done(function (msg) {
-                        window.location.replace("index.html");
-                    }).fail(function( msg ) {
-                        //nothing!
-                    });
-                } else {
+            if (toDo) {
+                client.updateNote(toDo._id,
+                    title.val(),
+                    description.val(),
+                    importance.val(),
+                    dueDate.val(),
+                    toDo.finishedDate
+                ).done(function (msg) {
+                    window.location.replace("index.html");
+                }).fail(function (msg) {
+                    //nothing!
+                });
+            } else {
 
-                    client.createNote(title.val(),
-                        description.val(),
-                        importance.val(),
-                        dueDate.val()
-                    ).done(function (msg) {
-                        window.location.replace("index.html");
-                    }).fail(function (msg) {
-                        //nothing!
-                    });
-
-
-
-                }
-                event.preventDefault();
-            });
-
+                client.createNote(title.val(),
+                    description.val(),
+                    importance.val(),
+                    dueDate.val()
+                ).done(function (msg) {
+                    window.location.replace("index.html");
+                }).fail(function (msg) {
+                    //nothing!
+                });
+            }
+            event.preventDefault();
+        });
 
         $("#btnCancel").click(function () {
             window.location.replace("index.html");
         });
-
-
     };
 
     $(document).ready(function () {
@@ -70,7 +63,7 @@
         var toDo;
         if (window.location.hash) {
             id = window.location.hash.substring(1);
-            client.getNote(id).done(function(toDo){
+            client.getNote(id).done(function (toDo) {
                 render(toDo);
             });
         } else {

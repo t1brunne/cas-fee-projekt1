@@ -1,6 +1,4 @@
-* {
-    box-sizing: border-box
-}
+
 
 body {
     font-family: Arial, Helvetica, sans-serif;
@@ -8,13 +6,14 @@ body {
 
 .color {
     background: lightblue;
-
 }
+
 a {
     text-decoration: none;
     color: black;
 }
-nav > div{
+
+nav > div {
     margin: 1em;
     white-space: nowrap;
 }
@@ -28,11 +27,11 @@ nav > div {
     display: flex;
 }
 
-
-.button{
-    border:solid black 2px;
+.button {
+    border: solid black 2px;
     padding: 0.3em;
     margin: 0;
+    font-size: 1em;
     background-color: lightgrey;
     text-align: center;
     box-shadow: 3px 3px 5px grey;
@@ -47,42 +46,41 @@ nav > div {
     box-shadow: 3px 3px 5px black;
     background-color: grey
 }
+
 #sortButtons {
 
     margin: 0;
     padding: 0;
 }
 
-
-
-
-#notes{
-    margin: 1em;/*10px;*/
+#notes {
+    margin: 1em;
 }
+
 #notes > ul {
     padding: 0;
 }
 
-.noteElement{
-    display:flex;
+.noteElement {
+    display: flex;
     justify-content: space-between;
 }
 
-.noteInfo   {
-    display:flex;
+.noteInfo {
+    display: flex;
     width: 90%;
 }
 
 .noteBody {
     display: flex;
     justify-content: space-between;
-    flex-direction:column;
+    flex-direction: column;
     flex-grow: 1;
     padding: 1em;
 }
 
-.noteBody > div:first-child{
-    display:flex;
+.noteBody > div:first-child {
+    display: flex;
     justify-content: space-between;
 }
 
@@ -96,37 +94,66 @@ nav > div {
 
 }
 
-.noteHeader > div:last-child{
+.noteHeader > div:last-child {
     margin-top: 1em; /*10px;*/
 }
-.noteEdit{
+
+.noteEdit {
     display: flex;
     width: 10%;
-    /*border: green solid;*/
     flex-direction: column;
-    padding: 1em; /*10px;*/
+    padding: 1em;
     justify-content: space-around;
 }
 
 .description {
     border: solid;
     border-width: 0.1em;
+    height: 2em;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    order: 1;
+
 }
 
+.descriptionDiv {
+    display: flex;
+    flex-direction: column;
+}
 
+.descriptionDiv > label {
+    order: 3;
+    align-self: flex-end;
+}
+
+.read-more-state {
+    display: none;
+    order: 2;
+}
+
+.read-more-state + label:before {
+    content: "Mehr...";
+}
+
+.read-more-state:checked ~ .description {
+    height: auto;
+}
+
+.read-more-state:checked + label:before {
+    content: "...weniger";
+}
 
 /* edit page*/
-
 
 .editFields {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
-    margin: 0.3em; /*10px;*/
+    margin: 0.3em;
 }
 
 .editFields > div > * {
-    margin: 0.3em; /* 10px;*/
+    margin: 0.3em;
 
 }
 
@@ -137,26 +164,24 @@ nav > div {
     align-items: center;
 }
 
-
 .editFields div:nth-child(even) {
     flex-basis: 80%;
-    display:flex;
+    display: flex;
 }
+
 .editFields div:nth-child(even) > :first-child {
     flex-basis: 80%;
 }
+
 .editFields div:nth-last-child(3) {
-    /*flex-basis: 100%;*/
-    flex: 1;
-    background: blue;
-    justify-content: center;
+    flex-basis: 100%;
 }
 
-#btnsubmit {
-
+#btnSubmit {
     width: 100%;
-    display:flex;
+    text-align: center;
 }
+
 .editFields div:last-child {
     flex-basis: auto;
 }
@@ -175,31 +200,28 @@ textarea {
     border: none;
     flex-basis: auto;
 }
+
 #ratingSystem > input {
     display: none;
 }
 
-
 #ratingSystem > label {
-    font-size:2em;
+    font-size: 2em;
     font-weight: bold;
     color: orange;
-    /*float: right; /* muss gekehrt werden, damit die nachfolgenden Elemente entsprechend gelabelt werden können*/
 }
 
 #ratingSystem > input:checked ~ input + label {
     color: gray;
 }
-/*
-#ratingSystem > input:checked ~ label /* show gold star when clicked (for all labels)*/
-/*{color: orange;}
-*/
+
 
 .toggle {
     display: none;
 }
+
 .noteImportance {
-    font-size:2em;
+    font-size: 2em;
     font-weight: bold;
     color: orange;
 }

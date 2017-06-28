@@ -36,8 +36,15 @@
                             {{/times}}
                         </div>
                     </div>
-                    <div class="description">{{breaklines description}}
+                    <div class="descriptionDiv">
+                        {{#overFlow description 2}}
+                        <input type="checkbox" class="read-more-state" id="post-{{_id}}"/>
+                        <label for="post-{{_id}}"></label>
+                        {{/overFlow}}
+                        <div class="description">{{breaklines description}}
+                        </div>
                     </div>
+
                 </div>
             </div>
             <div class="noteEdit">
@@ -66,7 +73,8 @@
                 <input type="radio" class="toggle" id="sortCreatedDate" name="sort" data-reverse-sort-order="true"
                        value="createdDateMoment">
                 <label class="button" for="sortCreatedDate">by Created Date</label>
-                <input type="radio" class="toggle" id="sortImportanceDate" name="sort" data-reverse-sort-order="true" value="importance">
+                <input type="radio" class="toggle" id="sortImportanceDate" name="sort" data-reverse-sort-order="true"
+                       value="importance">
                 <label class="button" for="sortImportanceDate">by Importance</label>
             </div>
 
