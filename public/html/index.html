@@ -18,12 +18,12 @@
         <li class="noteElement">
             <div class="noteInfo">
                 <div class="noteHeader">
-                    <div>{{formatDate dueDate}}</div>
+                    <div>{{formatDateFromNow dueDate}}</div>
                     <div>
                         <input id="cbx{{_id}}" data-id="{{_id}}" class="js-finish" type="checkbox" {{#if
-                               finished}}checked{{/if}}>
+                               finished}}checked{{/if}}/>
                         <label for="cbx{{_id}}">Finished</label>
-                        {{#if finished}} [{{formatDate finished}}] {{/if}}
+                        {{#if finished}} [{{formatDateFromNow finished}}] {{/if}}
                     </div>
                 </div>
                 <div class="noteBody">
@@ -68,10 +68,10 @@
 
             <div id="sortButtons" role="radiogroup" aria-labelledby="importance">
                 <input type="radio" class="toggle" id="sortDueDate" name="sort" data-reverse-sort-order="true"
-                       value="dueDateMoment">
+                       value="dueDate">
                 <label class="button" for="sortDueDate">by Finish Date</label>
                 <input type="radio" class="toggle" id="sortCreatedDate" name="sort" data-reverse-sort-order="true"
-                       value="createdDateMoment">
+                       value="createdDate">
                 <label class="button" for="sortCreatedDate">by Created Date</label>
                 <input type="radio" class="toggle" id="sortImportanceDate" name="sort" data-reverse-sort-order="true"
                        value="importance">

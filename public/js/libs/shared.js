@@ -21,11 +21,11 @@ class Note {
     get createdDate() {
         return this._createdDate;
     }
-
+/*
     get createdDateMoment() {
         return moment(this._createdDate);
     }
-
+*/
     get title() {
         return this._title;
     }
@@ -41,10 +41,10 @@ class Note {
     get dueDate() {
         return this._dueDate;
     }
-
+/*
     get dueDateMoment() {
         return this._dueDate ? moment(this._dueDate) : false;
-    }
+    }*/
 }
 
 

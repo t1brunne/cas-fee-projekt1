@@ -10,9 +10,18 @@
         return accum;
     });
 
-    Handlebars.registerHelper('formatDate', function (datetime) {
+    Handlebars.registerHelper('formatDateFromNow', function (datetime) {
         if (moment) {
             return moment(datetime).fromNow();
+        }
+        else {
+            return datetime;
+        }
+    });
+
+    Handlebars.registerHelper('formatDate', function (datetime) {
+        if (moment && datetime) {
+            return moment(datetime).format("YYYY-MM-DD");
         }
         else {
             return datetime;
