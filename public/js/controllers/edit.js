@@ -12,13 +12,11 @@
         var createEditHtml = Handlebars.compile(editTemplate);
         $("body").html(createEditHtml(toDo));
 
-        const btnSubmit = $("#btnSubmit");
-
         if (!toDo) {
             $("#bolt1")[0].checked = true;
         }
 
-        btnSubmit.click(function (event) {
+        $('#editForm').submit(function (event) {
             const title = $("#title");
             const description = $("#description");
             const importance = $('input[type="radio"]:checked');
@@ -49,6 +47,7 @@
                 });
             }
             event.preventDefault();
+
         });
 
         $("#btnCancel").click(function () {

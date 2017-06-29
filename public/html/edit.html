@@ -15,19 +15,19 @@
     <script src="../js/services/restClient.js"></script>
     <script src="../js/controllers/edit.js"></script>
     <script id='editTemplate' type='text/x-handlebars-template'>
-        <form>
+        <form id="editForm">
             <div class="editFields">
                 <div>
                     <label for="title">Titel:</label>
                 </div>
                 <div>
-                    <input id="title" type="text" value="{{title}}">
+                    <input id="title" type="text" required value="{{title}}">
                 </div>
                 <div>
                     <label for="description">Beschreibung:</label>
                 </div>
                 <div>
-                    <textarea id="description">{{description}}</textarea>
+                    <textarea id="description" required>{{description}}</textarea>
                 </div>
                 <div>
                     <label for="ratingSystem">Wichtigkeit:</label>
@@ -42,10 +42,10 @@
                     </div>
                 </div>
                 <div>
-                    <label for="dueDate">Erledigt bis:</label>
+                    <label for="dueDate" required>Erledigt bis:</label>
                 </div>
                 <div>
-                    <input id="dueDate" type="date" value="{{formatDate dueDate}}">
+                    <input id="dueDate" required type="date" value="{{formatDate dueDate}}">
                 </div>
                 <div>
                     <input class="button" type="submit" value="Submit" id="btnSubmit">
