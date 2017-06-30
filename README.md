@@ -2,6 +2,6 @@
 
 Entwickelt mit:
 
-OS: Mac  
-IDE: WebStorm
+OS: Mac
+IDE: WebStorm  
 Browser: Chrome 59
