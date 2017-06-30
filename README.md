@@ -3,5 +3,7 @@
 Entwickelt mit:
 
 OS: Mac
-IDE: WebStorm  
+
+IDE: WebStorm
+
 Browser: Chrome 59
