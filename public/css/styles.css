@@ -2,15 +2,19 @@
 
 body {
     font-family: Arial, Helvetica, sans-serif;
+    --main-color: black;
 }
 
 .color {
     background: lightblue;
+    color: darkgreen;
+    --main-color: darkgreen;
+    border-color: darkgreen;
 }
 
 a {
     text-decoration: none;
-    color: black;
+    color: var(--main-color);
 }
 
 nav > div {
@@ -28,27 +32,28 @@ nav > div {
 }
 
 .button {
-    border: solid black 2px;
+    border: solid  2px;
     padding: 0.3em;
     margin: 0;
     font-size: 1em;
-    background-color: lightgrey;
+    background-color: lightgray;
     text-align: center;
-    box-shadow: 3px 3px 5px grey;
+    box-shadow: 3px 3px 5px gray;
+
+    justify-content: center;
 }
 
 .button:hover {
     box-shadow: 3px 3px 5px black;
-    background-color: grey
+    background-color: gray
 }
 
 .toggle:checked + label {
     box-shadow: 3px 3px 5px black;
-    background-color: grey
+    background-color: gray
 }
 
 #sortButtons {
-
     margin: 0;
     padding: 0;
 }
@@ -90,12 +95,11 @@ nav > div {
     flex-direction: column;
     width: 25%;
     padding: 1em;
-    white-space: nowrap;
 
 }
 
 .noteHeader > div:last-child {
-    margin-top: 1em; /*10px;*/
+    margin-top: 1em;
 }
 
 .noteEdit {
@@ -104,6 +108,13 @@ nav > div {
     flex-direction: column;
     padding: 1em;
     justify-content: space-around;
+}
+
+.noteEdit > .button{
+    height: 100%;
+    display:flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .description {
@@ -143,6 +154,17 @@ nav > div {
     content: "...weniger";
 }
 
+
+.toggle {
+    display: none;
+}
+
+.noteImportance {
+    font-size: 2em;
+    font-weight: bold;
+    color: orange;
+}
+
 /* edit page*/
 
 .editFields {
@@ -180,10 +202,12 @@ nav > div {
 #btnSubmit {
     width: 100%;
     text-align: center;
+    color: var(--main-color);
 }
 
-.editFields div:last-child {
+.editFields > div:last-child {
     flex-basis: auto;
+    margin-left: auto;
 }
 
 .editFields .button {
@@ -216,12 +240,3 @@ textarea {
 }
 
 
-.toggle {
-    display: none;
-}
-
-.noteImportance {
-    font-size: 2em;
-    font-weight: bold;
-    color: orange;
-}
