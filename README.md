@@ -1,7 +1,7 @@
 # cas-fee-projekt1
 
-Entwickelt mit:__
-__
-OS: Mac__
-IDE: WebStorm__
+Entwickelt mit:
+
+OS: Mac  
+IDE: WebStorm
 Browser: Chrome 59
